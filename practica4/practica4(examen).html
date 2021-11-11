@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="shortcut icon" href="l">
+	<script src="examen.js"></script>
+	<title>Examen Teorico</title>
+	<style>
+		html {
+		min-height: 100%;
+		position: relative;
+		}
+		body {
+		margin: 0;
+		margin-bottom: 40px;
+		}
+		footer {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 40px;
+		color: white;
+		}
+	</style>
+</head>
+<body>
+
+	<nav class="navbar navbar-dark bg-dark">
+		<span class="navbar-brand mb-8 h1" style="margin:auto">Examen online</span>
+	</nav>
+	<br>
+	<form action="examen.php" method="POST">
+<div class="container">
+	<div class="row">
+		<div class="col-6">
+			<input type="text" class="form-control" name="nombre_alumno" minlength="10" maxlength="150" placeholder="Nombre(s) y Apellido(s)" required>
+		</div>
+		<br>
+		<div class="col-3">
+			<select name="grupo" id="grupo" class="custom-select" required>
+				<option value="" disabled selected>Grupo</option>
+				<option value="5AVP">5AVP</option>
+				<option value="5AVO">5AVO</option>
+				<option value="5AVCO">5AVCO</option>
+				<option value="5BVCO">5BVCO</option>
+				<option value="5AVC">5AVC</option>
+			</select><br>
+		</div>
+		<div class="col-3">
+			<input type="date" class="form-control" name="fecha" placeholder="Fecha" min="2021-11-01" required><br>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<label for="pregunta1">1.-¿Qué es la naturaleza? </label>
+	<div class="form-check">
+		<input class="form-check-input" type="radio" name="pregunta1"  value="a" style="margin-left: 10px;" onclick="p1()" required><label class="form-check-label" for="p1" style="margin-left: 30px;">Bosque</label><br>
+		<input class="form-check-input" type="radio" name="pregunta1"  value="b" style="margin-left: 10px;" onclick="p1()" required><label class="form-check-label" for="p1" style="margin-left: 30px;">Arboles</label><br>
+		<input class="form-check-input" type="radio" name="pregunta1"  value="c" style="margin-left: 10px;" onclick="p1()" required><label class="form-check-label" for="p1" style="margin-left: 30px;">Conjunto de las cosas que existen en el mundo o que se producen o modifican sin intervención del ser humano</label>
+	  </div>
+</div>
+<br>
+<div class="container" id="question2" hidden>
+</div>
+<br>
+<div class="container" id="question3" hidden>
+</div>
+<br>
+<div class="container" id="question4" >
+	<label for="">4.-Es uno de los principales problemas del medio ambiente</label><input style="text-transform: uppercase;" class="form-control-sm" type="text" name="pregunta4" style="margin-left: 10px;" maxlength="50" onchange="p4()" required><label class="form-check-label" for="p4" style="margin-left: 5px;"></label><br>
+</div>
+<br>
+<div class="container" id="question5" >
+	<label for="">5.-Enfermedad que causa el cambio climatico</label><input style="text-transform:uppercase" class="form-control-sm" type="text" name="pregunta5" style="margin-left: 10px;" maxlength="50" onchange="p5()" required ><label class="form-check-label" for="p5" style="margin-left: 5px;"></label><br>
+</div>
+<br>
+<div class="container" id="question6" >
+	<label for="">6.- Menciona uno de los paises mas afectados por el cambio de clima</label>
+	<input class="form-check-input" type="checkbox" name="pregunta9[]"  value="PHP" style="margin-left: 10px;" onclick="p9()"><label class="form-check-label" for="p9" style="margin-left: 30px;">Japon</label><br>
+		<input class="form-check-input" type="checkbox" name="pregunta9[]"  value="HTML" style="margin-left: 10px;" onclick="p9()"><label class="form-check-label" for="p9" style="margin-left: 30px;">Mexico</label><br>
+		<input class="form-check-input" type="checkbox" name="pregunta9[]"  value="CPP" style="margin-left: 10px;" onclick="p9()"><label class="form-check-label" for="p9" style="margin-left: 30px;">Inglaterra</label><br>
+		<input class="form-check-input" type="checkbox" name="pregunta9[]"  value="CSS" style="margin-left: 10px;" onclick="p9()"><label class="form-check-label" for="p9" style="margin-left: 30px;">Cancun</label><br>
+<br>
+<div class="container" id="question7" >
+	<label for="pregunta7">7.-¿Cual es una de las energias no renovables?</label>
+	<div class="checkbox-group required">
+		<input class="form-check-input" type="checkbox" name="pregunta7[]"  value="HTML" style="margin-left: 10px;" onclick="p7()"><label class="form-check-label" for="p7" style="margin-left: 30px;">El petroleo</label><br>
+		<input class="form-check-input" type="checkbox" name="pregunta7[]"  value="CSS" style="margin-left: 10px;" onclick="p7()"><label class="form-check-label" for="p7" style="margin-left: 30px;">Energia</label><br>
+		<input class="form-check-input" type="checkbox" name="pregunta7[]"  value="Bootstrap" style="margin-left: 10px;" onclick="p7()"><label class="form-check-label" for="p7" style="margin-left: 30px;">Eolica</label>
+	  </div>
+</div>
+<br>
+<div class="container" id="question8" >
+	<label for="pregunta8">8.-¿Cual es una de las energias renovables?</label>
+	<div class="form-check">
+		<input class="form-check-input" type="checkbox" name="pregunta8[]"  value="PHP" style="margin-left: 10px;" onclick="p8()"><label class="form-check-label" for="p8" style="margin-left: 30px;">Geotermica</label><br>
+		<input class="form-check-input" type="checkbox" name="pregunta8[]"  value="HTML" style="margin-left: 10px;" onclick="p8()"><label class="form-check-label" for="p8" style="margin-left: 30px;">Gas natural</label><br>
+		<input class="form-check-input" type="checkbox" name="pregunta8[]"  value="JAVA" style="margin-left: 10px;" onclick="p8()"><label class="form-check-label" for="p8" style="margin-left: 30px;">Petroleo</label>
+	  </div>
+</div>
+<br>
+<div class="container" id="question9" >
+	<label for="pregunta9">9.-¿Que es energia renovable?</label><input style="text-transform:uppercase" class="form-control-sm" type="text" name="pregunta5" style="margin-left: 10px;" maxlength="50" onchange="p5()" required ><label class="form-check-label" for="p5" style="margin-left: 5px;"></label><br>
+	<div class="form-check">
+		</div>
+<br>
+<div class="container" id="question10" >
+	<label for="pregunta10">10.¿Cual es la importancia de la energia no renovable?</label><inpu style="text-transform:uppercase"class="form-control-sm" type="text" name="pregunta10" style="margin-left: 10px;" maxlength="50" onchange="p5()" required ><label class="form-check-label" for="p5" style="margin-left: 5px;"></label><br>"
+	<input type="date" name="pregunta10" class="form-check-label" onchange="p10()" required>
+</div>
+<div class="container" id="enviar_borrar" >
+	<input type="submit" value="Enviar">
+</div>
+<br><br>
+</form>
+<footer>
+	<div class="container-xl">
+</body>
+</html>
